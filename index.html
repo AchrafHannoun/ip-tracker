@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ip Tracker</title>
+  </head>
+  <body>
+    <header> </header>
+    <main>
+      <div class="map" id="map"></div>
+    </main>
+    <div class="content">
+      <h1>IP Adress Tracker</h1>
+      <div class="search">
+        <input
+          type="text"
+          id="input"
+          placeholder="Search for any IP address or domain"
+        />
+        <button id="button">
+          <img src="icon-arrow.svg" alt="search icon" />
+        </button>
+      </div>
+      <div class="result hidden">
+        <div>
+          <h2>IP ADDRESS</h2>
+          <p>192.212.174.101</p>
+        </div>
+        <div>
+          <h2>LOCATION</h2>
+          <p>Brooklyn, NY 1001</p>
+        </div>
+        <div>
+          <h2>TIMEZONE</h2>
+          <p>UTC-05:00</p>
+        </div>
+        <div>
+          <h2>ISP</h2>
+          <p>SpaceX STARLINK</p>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
