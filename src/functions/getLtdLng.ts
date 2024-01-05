@@ -1,11 +1,14 @@
 import apiKeyGeoCode from "../secrets/apiKeyGeoCode";
 
-export default async function getLtdLng(address: string): Promise<string[]> {
+const getLtdLng = async (address: string): Promise<string[]> => {
   const apiKey = apiKeyGeoCode;
   const url = `https://geocode.maps.co/search?q=${address}&api_key=${apiKey}`;
-  const response = await fetch(url);
-  const data = await response.json();
-  const lat = data[0].lat;
-  const lng = data[0].lon;
+
+  const rawData = await fetch(url).then((response) => response.json());
+
+  const lat = rawData[0].lat;
+  const lng = rawData[0].lon;
   return [lat, lng];
-}
+};
+
+export default getLtdLng;
