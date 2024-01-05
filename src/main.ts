@@ -6,6 +6,7 @@ import updatePElements from "./functions/updatePElements";
 import getCountryInfo from "./functions/getCountryInfo";
 import apiKeyIPFY from "./secrets/apiKeyIPFY";
 import { Result } from "./types/Result";
+import updateMap from "./functions/updateMap";
 
 const input = document.getElementById("input") as HTMLInputElement;
 const button = document.getElementById("button") as HTMLButtonElement;
@@ -16,6 +17,12 @@ button.addEventListener("click", async () => {
 
   updatePElements(info);
   const location = info.location;
+  getLtdLng(location).then((latlng) => {
+    const lat = +latlng[0];
+    const lng = +latlng[1];
+    (document.getElementById("map") as HTMLDivElement).remove();
+    updateMap(lat, lng);
+  });
 });
 
 const userIp = (await getUserIp()) as string;

@@ -2,7 +2,7 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import mapKey from "../secrets/mapKey";
 
-export default function generateMap(lat: number, lng: number) {
+export default function generateMap(lat: number, lng: number): L.Map {
   const icon = L.icon({
     iconUrl: "icon-location.svg",
     iconAnchor: [25, 50],
@@ -31,4 +31,5 @@ export default function generateMap(lat: number, lng: number) {
   ).addTo(map);
   marker.addTo(map);
   marker.bindPopup("The IP Address is here");
+  return map;
 }
