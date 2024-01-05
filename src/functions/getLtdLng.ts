@@ -1,5 +1,4 @@
 import apiKeyGeoCode from "../secrets/apiKeyGeoCode";
-import getCountryInfo from "./getCountryInfo";
 
 export default async function getLtdLng(address: string): Promise<string[]> {
   const apiKey = apiKeyGeoCode;
