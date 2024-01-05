@@ -37,7 +37,7 @@ export default async function getCountryInfo(
     const result: Result = {
       ip: "Try Another IP",
       location: "Cannot Find Location",
-      timezone: "Can not Find the Timezone",
+      timezone: "Cannot Find the Timezone",
       isp: "Not Found",
     };
     return result;

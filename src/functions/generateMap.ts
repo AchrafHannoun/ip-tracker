@@ -2,9 +2,19 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import mapKey from "../secrets/mapKey";
 
-export default function generateMap() {
+export default function generateMap(lat: number, lng: number) {
+  const icon = L.icon({
+    iconUrl: "icon-location.svg",
+    iconAnchor: [25, 50],
+    iconSize: [25, 25],
+    popupAnchor: [0, -50],
+  });
+  const marker = L.marker([lat, lng], {
+    icon: icon,
+  });
+
   const map = L.map("map", {
-    center: L.latLng(31.244808138710322, -9.342556037097614),
+    center: L.latLng(lat, lng),
     zoom: 12,
   });
   const MapKey = mapKey;
@@ -19,4 +29,6 @@ export default function generateMap() {
       crossOrigin: true,
     }
   ).addTo(map);
+  marker.addTo(map);
+  marker.bindPopup("The IP Address is here");
 }
