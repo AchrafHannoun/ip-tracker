@@ -36,12 +36,11 @@ p{
   font-size: 27px;
 }
 header {
-  background-image: url('public/pattern-bg-desktop.png');
   height: 40%
 }
-img {
+header > img {
   width:100%;
-  height: auto;
+  min-height: 100%;
 }
 
 .content {
