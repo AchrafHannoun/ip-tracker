@@ -21,7 +21,7 @@ main {
 }
 h1 {
   font-weight: var(--fw-bold);
-  color: white
+  color: black
 }
 
 h2 {
@@ -43,6 +43,56 @@ header > img {
   min-height: 100%;
 }
 
+.intro-section {
+  position : absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+.magnetic {
+  margin-right: -100px;
+  padding: 150px;
+  border-radius: 50%;
+  /* border: 1px solid black; */
+}
+.intro-section button {
+  color: black;
+  font-family: var(--font);
+  font-weight: var(--fw-bold);
+  font-size: 36px;
+  padding-inline: 50px;
+  padding-block: 20px;
+  background-color: white;
+  border-radius: 1rem;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.intro-section button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black; 
+  clip-path: polygon(0 0, 0 0, 0 100%, 0 100%); 
+  transition: clip-path 0.5s ease-in-out; 
+  z-index: -1;
+}
+
+.intro-section button:hover {
+  color: white !important;
+  z-index: 1;
+}
+
+.intro-section button:hover::before {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); 
+}
+
 .content {
   position: absolute;
   left:0;
@@ -54,6 +104,10 @@ header > img {
   align-items: center;
   gap: 20px;
   z-index: 500;
+}
+
+.content h1 {
+  color: white;
 }
 
 .search {
@@ -80,7 +134,8 @@ width: fit-content;
 }
 
 .hidden {
-  visibility: hidden;
+  opacity: 0;
+  z-index: 0;
 }
 
 .result {

@@ -7,6 +7,7 @@ import getCountryInfo from "./functions/getCountryInfo";
 import apiKeyIPFY from "./secrets/apiKeyIPFY";
 import { Result } from "./types/Result";
 import updateMap from "./functions/updateMap";
+import { moveMagnet, moveMagnetOut } from "./functions/moveMagnet";
 
 const input = document.getElementById("input") as HTMLInputElement;
 const button = document.getElementById("button") as HTMLButtonElement;
@@ -30,4 +31,27 @@ button.addEventListener("click", async () => {
     (document.getElementById("map") as HTMLDivElement).remove();
     updateMap(lat, lng);
   });
+});
+
+//special mention to this amazing pen https://codepen.io/tdesero/pen/RmoxQg
+//tweenMax isn't working, need to use gsap
+
+const magneticElement = document.querySelector(".magnetic") as HTMLElement;
+magneticElement.addEventListener("mousemove", (event) => {
+  moveMagnet(event);
+});
+
+magneticElement.addEventListener("mouseout", () => {
+  moveMagnetOut();
+});
+
+const hidden = document.querySelectorAll(".hidden") as NodeListOf<HTMLElement>;
+
+const show = document.getElementById("show") as HTMLButtonElement;
+
+show.addEventListener("click", () => {
+  hidden.forEach((element) => {
+    element.classList.remove("hidden");
+  });
+  magneticElement.classList.add("hidden");
 });
