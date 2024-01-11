@@ -13,8 +13,19 @@ const input = document.getElementById("input") as HTMLInputElement;
 const button = document.getElementById("button") as HTMLButtonElement;
 const userIp = (await getUserIp()) as string;
 const info = (await getCountryInfo(userIp, apiKeyIPFY)) as Result;
+const hidden = document.querySelectorAll(".hidden") as NodeListOf<HTMLElement>;
+const show = document.getElementById("show") as HTMLButtonElement;
+
 updatePElements(info);
-const latlng = (await getLtdLng("quebec, ca")) as string[];
+show.addEventListener("click", () => {
+  hidden.forEach((element) => {
+    element.classList.remove("hidden");
+    element.style.zIndex = "999";
+  });
+  magneticElement.classList.add("hidden");
+});
+
+const latlng = (await getLtdLng(info.location)) as string[];
 const lat = +latlng[0];
 const lng = +latlng[1];
 generateMap(lat, lng);
@@ -43,15 +54,4 @@ magneticElement.addEventListener("mousemove", (event) => {
 
 magneticElement.addEventListener("mouseout", () => {
   moveMagnetOut();
-});
-
-const hidden = document.querySelectorAll(".hidden") as NodeListOf<HTMLElement>;
-
-const show = document.getElementById("show") as HTMLButtonElement;
-
-show.addEventListener("click", () => {
-  hidden.forEach((element) => {
-    element.classList.remove("hidden");
-  });
-  magneticElement.classList.add("hidden");
 });

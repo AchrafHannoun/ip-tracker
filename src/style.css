@@ -80,7 +80,7 @@ header > img {
   height: 100%;
   background-color: black; 
   clip-path: polygon(0 0, 0 0, 0 100%, 0 100%); 
-  transition: clip-path 0.5s ease-in-out; 
+  transition: clip-path .5s ease-in-out; 
   z-index: -1;
 }
 
