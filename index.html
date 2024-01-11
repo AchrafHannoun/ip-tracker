@@ -6,13 +6,18 @@
     <title>Ip Tracker</title>
   </head>
   <body>
-    <header>
+    <div class="intro-section">
+      <div class="magnetic">
+        <button id="show">Where Am I?</button>
+      </div>
+    </div>
+    <header class="hidden">
       <img src="pattern-bg-desktop.png" alt="background image" />
     </header>
-    <main>
+    <main class="hidden">
       <div class="map" id="map"></div>
     </main>
-    <div class="content">
+    <div class="content hidden">
       <h1>IP Adress Tracker</h1>
       <div class="search">
         <input
@@ -24,7 +29,7 @@
           <img src="icon-arrow.svg" alt="search icon" />
         </button>
       </div>
-      <div class="result">
+      <div class="result hidden">
         <div>
           <h2>IP ADDRESS</h2>
           <p>CANNOT FIND YOUR IP</p>

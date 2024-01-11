@@ -15,6 +15,7 @@
     "vite-tsconfig-paths": "^4.2.3"
   },
   "dependencies": {
+    "gsap": "^3.12.4",
     "leaflet": "^1.9.4"
   }
 }

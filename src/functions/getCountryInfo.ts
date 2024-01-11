@@ -4,7 +4,7 @@ export default async function getCountryInfo(
   ip: string,
   apiKey: string
 ): Promise<Result> {
-  const url = "https://geo.ipify.org/api/v2/country";
+  const url = "https://geo.ipify.org/api/v2/country,city";
   const fullUrl = `${url}?apiKey=${apiKey}&ipAddress=${ip}`;
   try {
     const response = await fetch(fullUrl);
@@ -13,7 +13,7 @@ export default async function getCountryInfo(
       console.log(data);
       const result: Result = {
         ip: data.ip,
-        location: `${data.location.region}, ${data.location.country}`,
+        location: `${data.location.city}, ${data.location.region}, ${data.location.country}`,
         timezone: data.location.timezone,
         isp: data.isp,
       };
